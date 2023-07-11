@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Services;
 
 namespace CarRental.View
 {
@@ -35,7 +36,14 @@ namespace CarRental.View
             //CarRental r = new CarRental(name, datePickup, dateReturn, priceHour, priceDay);
             Console.WriteLine("DateReturn: " + dateReturn);
 
-            Rental r = new Rental(datePickup, dateReturn, new Vehicle(name));
+            Rental rental = new Rental(datePickup, dateReturn, new Vehicle(name));
+
+            RentalService rentalService = new RentalService(priceHour, priceDay);
+
+            rentalService.ProcessInvoice(rental);
+
+            Console.WriteLine("INVOICE:\n" +
+                rental.Invoice);
         }
     }
 }
