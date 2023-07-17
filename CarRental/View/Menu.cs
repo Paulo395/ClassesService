@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarRental.Services;
 using Entities;
 using Services;
 
@@ -38,7 +34,7 @@ namespace CarRental.View
 
             Rental rental = new Rental(datePickup, dateReturn, new Vehicle(name));
 
-            RentalService rentalService = new RentalService(priceHour, priceDay);
+            RentalService rentalService = new RentalService(priceHour, priceDay, new BrazilTaxService());
 
             rentalService.ProcessInvoice(rental);
 

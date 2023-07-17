@@ -1,5 +1,4 @@
 ﻿using CarRental.View;
-using System;
 
 namespace CarRental // Note: actual namespace depends on the project name.
 {
